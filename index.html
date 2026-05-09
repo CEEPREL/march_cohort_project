@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PharmaCare Pharmacy Dashboard</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="badge rounded-pill text-bg-light px-3 py-2 mb-3">Pharmacy Web Demo</span>
+          <h1 class="display-5 fw-bold mb-3">PharmaCare Pharmacy Dashboard</h1>
+          <p class="lead mb-4">
+            A small, professional-looking pharmacy interface that loads sample data and presents it
+            as patient profiles, refill activity, and pharmacy notices.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <button id="loadDataBtn" class="btn btn-success btn-lg">Load Dashboard Data</button>
+            <button id="clearDataBtn" class="btn btn-outline-light btn-lg">Clear Screen</button>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-card p-4">
+            <h2 class="h4 fw-bold mb-3">Overview</h2>
+            <ul class="mb-0 hero-list">
+              <li>Patient directory overview</li>
+              <li>Refill status updates</li>
+              <li>Recent pharmacy notices</li>
+              <li>Quick search and clean layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <section class="mb-5">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="info-card h-100 p-4">
+              <h2 class="h5 fw-bold">Patient Records</h2>
+              <p class="mb-2">Profiles adapted from live sample data</p>
+              <p class="mb-0">Useful for a simple customer-facing dashboard</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card h-100 p-4">
+              <h2 class="h5 fw-bold">Refill Monitoring</h2>
+              <p class="mb-2">Track refill requests by patient</p>
+              <p class="mb-0">See active and completed refill activity</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card h-100 p-4">
+              <h2 class="h5 fw-bold">Pharmacy Notices</h2>
+              <p class="mb-0">Display short service notes and pharmacy-related updates in one panel.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-6">
+            <label for="searchInput" class="form-label fw-semibold">Search patient by name</label>
+            <input
+              id="searchInput"
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Type a patient name..."
+            />
+          </div>
+          <div class="col-lg-6">
+            <div id="statusBox" class="status-box p-3">
+              Click <strong>Load Dashboard Data</strong> to begin.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+          <h2 class="section-title mb-0">Patient Directory</h2>
+          <span id="customerCount" class="badge text-bg-success px-3 py-2">0 patients</span>
+        </div>
+        <div id="customerList" class="row g-4">Show here</div>
+      </section>
+
+      <section class="mb-5">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="content-panel p-4 h-100">
+              <h2 class="section-title">Patient Refill Activity</h2>
+              <p class="text-muted">This panel updates when a patient profile is selected.</p>
+              <div id="taskList" class="list-group mt-3">
+                <div class="list-group-item">No patient selected yet.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="content-panel p-4 h-100">
+              <h2 class="section-title">Pharmacy Notices</h2>
+              <p class="text-muted">Recent notices and care messages displayed in a clean side panel.</p>
+              <div id="tipsList" class="tips-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-4">
+        <div class="content-panel p-4">
+          <h2 class="section-title">Service Summary</h2>
+          <div class="row g-4 mt-1">
+            <div class="col-md-4">
+              <div class="step-box p-3 h-100">
+                <h3 class="h6 fw-bold">Patient Profiles</h3>
+                <p class="mb-0">Quickly view patient contact details and assigned pharmacy branch.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="step-box p-3 h-100">
+                <h3 class="h6 fw-bold">Refill Tracking</h3>
+                <p class="mb-0">Review refill activity and monitor pending or completed refill items.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="step-box p-3 h-100">
+                <h3 class="h6 fw-bold">Notice Board</h3>
+                <p class="mb-0">Keep service notes and general care information visible to staff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="py-4">
+    <div class="container">
+      <div class="footer-panel px-4 py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span>PharmaCare Dashboard</span>
+        <span class="text-muted">Simple pharmacy interface powered by live sample data</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
